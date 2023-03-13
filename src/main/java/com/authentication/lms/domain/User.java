@@ -2,6 +2,8 @@ package com.authentication.lms.domain;
 
 import com.authentication.lms.domain.enumaration.Role;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -39,6 +41,7 @@ import java.util.UUID;
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @JsonIgnore
     private Long id;
     @NotNull
     private String firstName;
@@ -50,8 +53,11 @@ public class User implements UserDetails {
     @NotNull
     private String email;
     @NotNull
+    @JsonIgnore
     private String password;
+
     @Enumerated(EnumType.STRING)
+    @JsonIgnore
     private Role role;
 
 

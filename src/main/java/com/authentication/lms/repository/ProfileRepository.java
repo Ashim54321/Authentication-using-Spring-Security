@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
 import java.util.UUID;
 
 
@@ -15,6 +16,6 @@ public interface ProfileRepository extends JpaRepository<ProfileInfo,Long> {
     @Query(
             "select pp from ProfileInfo pp where pp.user.userCode=:userCode"
     )
-    ProfileInfo findProfileInfoByUserCode(@Param("userCode") UUID userCode);
+   ProfileInfo findProfileInfoByUserCode(@Param("userCode") UUID userCode);
 
 }

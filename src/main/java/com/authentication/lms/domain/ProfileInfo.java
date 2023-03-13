@@ -1,6 +1,7 @@
 package com.authentication.lms.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,6 +24,7 @@ import java.util.UUID;
 @Table(
         uniqueConstraints = @UniqueConstraint(columnNames = {"altEmail"})
 )
+@JsonIgnoreProperties(value = { "id" }, allowSetters = true)
 public class ProfileInfo  {
     @Id
     @GeneratedValue
@@ -43,6 +45,7 @@ public class ProfileInfo  {
     @NotNull
     private String mobileNumber;
 
+    @JsonIgnoreProperties(value = { "password","id","authorities","enabled","accountNonLocked","credentialsNonExpired","accountNonExpired","role" }, allowSetters = true)
     @OneToOne
     private User user;
 

@@ -6,8 +6,9 @@ import java.util.UUID;
 
 public interface ProfileInfoService{
 
-    ProfileInfo addProfileInfo(ProfileInfo profileInfo, UUID userCode);
 
     ProfileInfo getProfileInfo(UUID userCode);
+
+    ProfileInfo updateProfileInfo(ProfileInfo profileInfo , UUID userCode);
 
 }

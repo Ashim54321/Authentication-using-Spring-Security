@@ -49,7 +49,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 )
         );
         var user = userRepository.findByEmail(request.getEmail())
-                .orElseThrow();
+                .orElseThrow(()-> new RuntimeException("USER NOT FOUND"));
         var jwtToken = jwtService.generateToken(user);
         return AuthenticationResponce.builder().token(jwtToken).build();
     }
